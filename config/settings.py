@@ -19,12 +19,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # load environment variables from .env file
-SECRET_KEY = os.getenv('SECRET_KEY')
-DB_HOST = os.getenv('DB_HOST')
-DB_PORT = os.getenv('DB_PORT')
-DB_USER = os.getenv('DB_USER')
-DB_PASSWORD = os.getenv('DB_PASSWORD')
-DB_NAME = os.getenv('DB_NAME')
+SECRET_KEY = 'django-insecure-adbuina^v9lx&fo!2i#ac*$)ty-kak-^jl2gj8opku%$ugia72'
+
 FRONTEND_URL = os.getenv('FRONTEND_URL')
 
 
@@ -76,14 +72,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
