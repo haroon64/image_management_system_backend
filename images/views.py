@@ -7,13 +7,17 @@ from django.shortcuts import get_object_or_404
 from rest_framework.parsers import MultiPartParser, FormParser
 
 
-class ImageListCreateAPIView(APIView):
+class ImageListAPIView(APIView):
     parser_classes = (MultiPartParser, FormParser) 
 
     def get(self, request):
         images = Image.objects.all()
         serializer = ImageSerializer(images, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class UploadImageAPIView(APIView):
+    parser_classes = (MultiPartParser, FormParser) 
 
     def post(self, request):
         serializer = ImageSerializer(data=request.data)

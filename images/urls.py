@@ -6,8 +6,9 @@ from . import views
 app_name = 'images'
 
 urlpatterns = [
-    path('', views.ImageListCreateAPIView.as_view(), name='image-list-create'),
-    path('<int:pk>/', views.ImageDeleteAPIView.as_view(), name='image-delete'),
+    path('upload/', views.UploadImageAPIView.as_view(), name='image-upload'),
+    path('', views.ImageListAPIView.as_view(), name='image-list'),
+    path('delete/<int:pk>/', views.ImageDeleteAPIView.as_view(), name='image-delete'),
 
     
 ]
